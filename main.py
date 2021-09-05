@@ -43,11 +43,6 @@ def juget(image, post_landmarks):
     x24 = int(results.pose_landmarks.landmark[24].x * image.shape[1])
     y24 = int(results.pose_landmarks.landmark[24].y * image.shape[0])
 
-    # print()
-    # print("============================================")
-    # print("躯干:",(x23-x11)/(y23-y11))
-    # print("斜对角:",(x11-x24)/(y11-y24))
-
     if y11 < y23 or y12 < y24 :
         drowningTime = time.time()
         if abs((x23-x11)/(y23-y11)) < 0.4 or abs((x24-x12)/(y24-y12)) < 0.4:  # 斜率绝对值小于 0.4 视为非正常泳姿
@@ -63,11 +58,6 @@ def juget(image, post_landmarks):
     return image
 
 if __name__ == '__main__':
-    # app = QApplication(sys.argv)
-    # myWin = MyWindow()
-    # myWin.show()
-    # sys.exit(app.exec_())
-
     # For static images:
     IMAGE_FILES = []
     BG_COLOR = (192, 192, 192) # gray
@@ -161,7 +151,7 @@ if __name__ == '__main__':
 
 
 
-        # print("fps= %.2f" % (fps))
+        print("fps= %.2f" % (fps))
         if cv2.waitKey(5) & 0xFF == 27:
           break
     cap.release()
