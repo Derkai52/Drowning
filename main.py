@@ -9,19 +9,6 @@ mp_holistic = mp.solutions.holistic
 
 jugetTime = 0
 
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from Drowning import *
-
-
-class MyWindow(QMainWindow, Ui_Drowning):
-    def __init__(self, parent=None):
-        super(MyWindow, self).__init__(parent)
-        self.setupUi(self)
-
-
-
-
 # 画图函数
 def draws(image, post_landmarks, index):
     cv2.circle(image,
